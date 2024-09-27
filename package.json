@@ -3,6 +3,7 @@
   "displayName": "RunCellsWithTag",
   "description": "Run cells with the specified tag.",
   "version": "1.0.0",
+  "publisher": "jantomec",
   "engines": {
     "vscode": "^1.93.0"
   },
