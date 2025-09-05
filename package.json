@@ -2,7 +2,7 @@
   "name": "runcellswithtag",
   "displayName": "RunCellsWithTag",
   "description": "Run cells with the specified tag.",
-  "version": "1.0.1",
+  "version": "1.1.0",
   "publisher": "jantomec",
   "engines": {
     "vscode": "^1.93.0"
@@ -14,12 +14,32 @@
   "main": "./out/extension.js",
   "icon": "images/icon.png",
   "contributes": {
+    "configuration": {
+      "title": "RunCellsWithTag",
+      "properties": {
+        "runcellswithtag.showToolbarButton": {
+          "type": "boolean",
+          "default": true,
+          "description": "Show the 'Run Cells With Tag' button in the notebook toolbar."
+        }
+      }
+    },
     "commands": [
       {
         "command": "runcellswithtag.runCellsWithTag",
-        "title": "Run Cells With Tag"
+        "title": "Run Cells With Tag",
+        "icon": "$(tag)"
       }
-    ]
+    ],
+    "menus": {
+      "notebook/toolbar": [
+        {
+          "command": "runcellswithtag.runCellsWithTag",
+          "when": "notebookType == 'jupyter-notebook' && config.runcellswithtag.showToolbarButton",
+          "group": "navigation@20"
+        }
+      ]
+    }
   },
   "scripts": {
     "vscode:prepublish": "npm run compile",
