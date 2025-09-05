@@ -32,6 +32,10 @@ You can install the **RunCellsWithTag** extension directly from the Visual Studi
 
 ## Release Notes
 
+### 1.0.1
+
+Remember last entered tag and also scrape the notebook for tags to offer as alternatives.
+
 ### 1.0.0
 
 Initial release of RunCellsWithTag
