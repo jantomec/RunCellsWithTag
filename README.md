@@ -17,9 +17,8 @@ You can install the **RunCellsWithTag** extension directly from the Visual Studi
 ## How to use?
 
 1. Add some tags to your notebook cells. Cells can have multiple tags, no problem.
-2. Open **Command Palette**: Press `Ctrl + Shift + P` (or `Cmd + Shift + P` on macOS).
-3. Start typing `Run Cells With Tag` and select the command.
-4. Type the name of the tag and press `Enter`.
+2. Use the toolbar button **Run Cells With Tag**. Alternatively, open **Command Palette**: Press `Ctrl + Shift + P` (or `Cmd + Shift + P` on macOS). Start typing `Run Cells With Tag` and select the command.
+3. Select the name of the tag and press `Enter`.
 
 ![example](images/steps.gif)
 
@@ -31,6 +30,10 @@ You can install the **RunCellsWithTag** extension directly from the Visual Studi
 - Check the case sensitivity of the tags when entering them in the command palette.
 
 ## Release Notes
+
+### 1.1.0
+
+Add a button to make things simpler. The button can be disabled in extension settings.
 
 ### 1.0.1
 
