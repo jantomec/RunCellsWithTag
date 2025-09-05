@@ -76,7 +76,9 @@ async function getLastUsedTag(ctx: vscode.ExtensionContext, doc?: vscode.Noteboo
 }
 
 async function setLastUsedTag(ctx: vscode.ExtensionContext, tag: string, doc?: vscode.NotebookDocument) {
-    if (doc) await ctx.globalState.update(storageKeyForNotebook(doc), tag);
+    if (doc) {
+        await ctx.globalState.update(storageKeyForNotebook(doc), tag);
+    }
     await ctx.globalState.update(GLOBAL_LAST_TAG_KEY, tag);
 }
 
@@ -117,7 +119,9 @@ async function pickTag(
         matchOnDescription: true,
     });
 
-    if (!picked) return undefined;
+    if (!picked) {
+        return undefined;
+    }
 
     if (picked.description === 'manual entry') {
         const typed = await vscode.window.showInputBox({
@@ -137,7 +141,9 @@ async function executeCellsWithTag(doc: vscode.NotebookDocument, tag: string) {
     const target: vscode.NotebookCell[] = [];
     for (const cell of doc.getCells()) {
         const tags = getCellTags(cell);
-        if (tags.includes(tag)) target.push(cell);
+        if (tags.includes(tag)) {
+            target.push(cell);
+        }
     }
 
     if (target.length === 0) {
@@ -171,7 +177,9 @@ export function activate(context: vscode.ExtensionContext) {
         const doc = editor.notebook;
         const allTags = collectAllTags(doc);
         const tag = await pickTag(context, doc, allTags);
-        if (!tag) return; // user cancelled or empty
+        if (!tag) {
+            return; // user cancelled or empty
+        }
 
         await setLastUsedTag(context, tag, doc);
         await executeCellsWithTag(doc, tag);
